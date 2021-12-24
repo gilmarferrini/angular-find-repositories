@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RepositoryService } from 'src/app/repositories/services/repository.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  repositoryName: string = ''
+
+  constructor(
+    private repositoryService: RepositoryService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  handleSearchRepositories() {
+    this.repositoryService.getRepositories(this.repositoryName)
+      .subscribe((repositories) => {
+        console.log(repositories)
+      })
   }
 
 }

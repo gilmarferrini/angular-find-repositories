@@ -4,8 +4,15 @@
       <span class="navbar__logo">Find</span>
       <span class="navbar__logo">Repositories</span>
     </a>
-    <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <form class="d-flex" (ngSubmit)="handleSearchRepositories()">
+      <input
+        class="form-control me-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+        name="repositoryName"
+        [(ngModel)]="repositoryName"
+      >
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
   </div>
