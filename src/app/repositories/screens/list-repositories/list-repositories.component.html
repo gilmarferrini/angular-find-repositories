@@ -1,2 +1,16 @@
 <app-header (repositoryHttpResponseEmitter)="getRepositoriesStatusFromEmitter($event)"></app-header>
 <app-list-status [repositoriesStatusData]="repositoriesStatusData"></app-list-status>
+
+<div class="container">
+  <div class="card mt-2 card__container" *ngFor="let repository of repositories">
+    <div class="card-header">
+      {{ repository.owner.login }}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ repository.full_name }}</h5>
+      <p class="card-text">{{repository.description}}</p>
+      <a href="#" class="btn btn-primary">Details</a>
+    </div>
+  </div>
+
+</div>

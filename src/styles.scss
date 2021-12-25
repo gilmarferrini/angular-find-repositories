@@ -1,8 +1,9 @@
 :root {
   --background-primary-color: #22272E;
   --font-primary-color: #eee;
+  --border-primary-color: #539BF5;
 }
 
 html, body {
-  background-color: var(--background-primary-color);
+  background-color: var(--background-primary-color) !important;
 }
