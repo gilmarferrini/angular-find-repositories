@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from "@angular/common/http"
 import { ListStatusComponent } from './components/list-status/list-status.component';
-import { ListRepositoriesComponent } from './pages/list-repositories/list-repositories.component';
+import { ListRepositoriesComponent } from './screens/list-repositories/list-repositories.component';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({
