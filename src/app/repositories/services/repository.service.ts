@@ -25,4 +25,10 @@ export class RepositoryService {
       .httpClient
       .get<CommitHttpResponse[]>(`${this.baseURL}/search/commits?q=${repositoryName}`)
   }
+
+  findRepository(ownerName: string, repositoryName: string) {
+    return this
+      .httpClient
+      .get<any>(`${this.baseURL}/repos/${ownerName}/${repositoryName}`)
+  }
 }
