@@ -1,3 +1,4 @@
+import { CommitHttpResponse } from './../models/CommitHttpResponse';
 import { RepositoryHttpResponse } from './../models/RepositoryHttpResponse';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
@@ -13,9 +14,15 @@ export class RepositoryService {
     private httpClient: HttpClient
   ) { }
 
-  getRepositories(repositoryName: string, page = 1) {
+  findRepositoriesByName(repositoryName: string, page = 1) {
     return this
       .httpClient
       .get<RepositoryHttpResponse>(`${this.baseURL}/search/repositories?q=${repositoryName}&per_page=7&page=${page}`)
+  }
+
+  getCommitsByName(repositoryName: string) {
+    return this
+      .httpClient
+      .get<CommitHttpResponse[]>(`${this.baseURL}/search/commits?q=${repositoryName}`)
   }
 }

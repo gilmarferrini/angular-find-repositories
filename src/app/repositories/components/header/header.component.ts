@@ -21,9 +21,10 @@ export class HeaderComponent implements OnInit {
   }
 
   handleSearchRepositories() {
-    this.repositoryService.getRepositories(this.repositoryName)
+    this.repositoryService.findRepositoriesByName(this.repositoryName)
       .subscribe(data => {
         this.repositoryHttpResponseEmitter.emit(data)
+        console.log(data)
       })
   }
 
