@@ -24,7 +24,6 @@ export class HeaderComponent implements OnInit {
     this.repositoryService.findRepositoriesByName(this.repositoryName)
       .subscribe(data => {
         this.repositoryHttpResponseEmitter.emit(data)
-        console.log(data)
       })
   }
 

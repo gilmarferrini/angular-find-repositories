@@ -1,6 +1,7 @@
 import { RepositoryStatusData } from './../../models/RepositoryStatusData';
 import { RepositoryHttpResponse } from './../../models/RepositoryHttpResponse';
 import { Component, OnInit } from '@angular/core';
+import { Repository } from '../../models/Repository';
 
 @Component({
   selector: 'app-list-repositories',
@@ -10,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class ListRepositoriesComponent implements OnInit {
 
   repositoriesStatusData: RepositoryStatusData = {} as RepositoryStatusData
+  repositories: Repository[] = []
 
   constructor() { }
 
@@ -20,6 +22,8 @@ export class ListRepositoriesComponent implements OnInit {
     this.repositoriesStatusData = {
       total_count: $event.total_count
     }
+
+    this.repositories = $event.items;
   }
 
 }
