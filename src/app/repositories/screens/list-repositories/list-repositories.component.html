@@ -1,2 +1,2 @@
-<app-header></app-header>
-<app-list-status></app-list-status>
+<app-header (repositoryHttpResponseEmitter)="getRepositoriesStatusFromEmitter($event)"></app-header>
+<app-list-status [repositoriesStatusData]="repositoriesStatusData"></app-list-status>

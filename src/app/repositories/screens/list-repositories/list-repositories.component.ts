@@ -1,3 +1,5 @@
+import { RepositoryStatusData } from './../../models/RepositoryStatusData';
+import { RepositoryHttpResponse } from './../../models/RepositoryHttpResponse';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListRepositoriesComponent implements OnInit {
 
+  repositoriesStatusData: RepositoryStatusData = {} as RepositoryStatusData
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  getRepositoriesStatusFromEmitter($event: RepositoryHttpResponse) {
+    this.repositoriesStatusData = {
+      total_count: $event.total_count
+    }
   }
 
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { RepositoryHttpResponse } from './../../models/RepositoryHttpResponse';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { RepositoryService } from 'src/app/repositories/services/repository.service';
 
 @Component({
@@ -7,6 +8,8 @@ import { RepositoryService } from 'src/app/repositories/services/repository.serv
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+  @Output() repositoryHttpResponseEmitter: EventEmitter<RepositoryHttpResponse> = new EventEmitter()
 
   repositoryName: string = ''
 
@@ -19,8 +22,8 @@ export class HeaderComponent implements OnInit {
 
   handleSearchRepositories() {
     this.repositoryService.getRepositories(this.repositoryName)
-      .subscribe((repositories) => {
-        console.log(repositories)
+      .subscribe(data => {
+        this.repositoryHttpResponseEmitter.emit(data)
       })
   }
 

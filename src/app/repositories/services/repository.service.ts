@@ -1,3 +1,4 @@
+import { RepositoryHttpResponse } from './../models/RepositoryHttpResponse';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 
@@ -15,6 +16,6 @@ export class RepositoryService {
   getRepositories(repositoryName: string, page = 1) {
     return this
       .httpClient
-      .get(`${this.baseURL}/search/repositories?q=${repositoryName}&per_page=7&page=${page}`)
+      .get<RepositoryHttpResponse>(`${this.baseURL}/search/repositories?q=${repositoryName}&per_page=7&page=${page}`)
   }
 }

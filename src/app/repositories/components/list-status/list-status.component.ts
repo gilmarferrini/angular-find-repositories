@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { RepositoryStatusData } from './../../models/RepositoryStatusData';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-list-status',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListStatusComponent implements OnInit {
 
-  constructor() { }
+  @Input() repositoriesStatusData: RepositoryStatusData = {} as RepositoryStatusData
+
+  constructor() {
+
+  }
 
   ngOnInit(): void {
+    this.repositoriesStatusData = {
+      total_count: 0
+    }
   }
 
 }
