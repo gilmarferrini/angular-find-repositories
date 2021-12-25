@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from "@angular/common/http"
 import { ListStatusComponent } from './components/list-status/list-status.component';
 import { ListRepositoriesComponent } from './screens/list-repositories/list-repositories.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
