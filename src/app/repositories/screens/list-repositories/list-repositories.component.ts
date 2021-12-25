@@ -2,6 +2,7 @@ import { RepositoryStatusData } from './../../models/RepositoryStatusData';
 import { RepositoryHttpResponse } from './../../models/RepositoryHttpResponse';
 import { Component, OnInit } from '@angular/core';
 import { Repository } from '../../models/Repository';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-repositories',
@@ -13,7 +14,9 @@ export class ListRepositoriesComponent implements OnInit {
   repositoriesStatusData: RepositoryStatusData = {} as RepositoryStatusData
   repositories: Repository[] = []
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -26,4 +29,7 @@ export class ListRepositoriesComponent implements OnInit {
     this.repositories = $event.items;
   }
 
+  changeToDetailsPage(ownerName: string, repositoryName: string) {
+    this.router.navigateByUrl(`/home/details/${ownerName}/${repositoryName}`);
+  }
 }
