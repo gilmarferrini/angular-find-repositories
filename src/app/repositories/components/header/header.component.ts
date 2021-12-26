@@ -1,6 +1,7 @@
 import { RepositoryHttpResponse } from './../../models/RepositoryHttpResponse';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { RepositoryService } from 'src/app/repositories/services/repository.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,12 +13,18 @@ export class HeaderComponent implements OnInit {
   @Output() repositoryHttpResponseEmitter: EventEmitter<RepositoryHttpResponse> = new EventEmitter()
 
   repositoryName: string = ''
+  amountParams: number = 0;
 
   constructor(
-    private repositoryService: RepositoryService
+    private repositoryService: RepositoryService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.activatedRoute.url.subscribe(data => {
+      this.amountParams = data.length
+    })
   }
 
   handleSearchRepositories() {
@@ -25,6 +32,10 @@ export class HeaderComponent implements OnInit {
       .subscribe(data => {
         this.repositoryHttpResponseEmitter.emit(data)
       })
+  }
+
+  changePageToHome() {
+    this.router.navigateByUrl('home')
   }
 
 }

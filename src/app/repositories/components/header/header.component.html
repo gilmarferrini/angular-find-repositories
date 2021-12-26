@@ -4,7 +4,7 @@
       <span class="navbar__logo">Find</span>
       <span class="navbar__logo">Repositories</span>
     </a>
-    <form class="d-flex" (ngSubmit)="handleSearchRepositories()">
+    <form *ngIf="amountParams < 2; else detalhes" class="d-flex" (ngSubmit)="handleSearchRepositories()">
       <input
         class="form-control me-2"
         type="search"
@@ -17,3 +17,7 @@
     </form>
   </div>
 </nav>
+
+<ng-template #detalhes>
+  <button type="button" (click)="changePageToHome()" class="btn btn-primary">Home</button>
+</ng-template>
