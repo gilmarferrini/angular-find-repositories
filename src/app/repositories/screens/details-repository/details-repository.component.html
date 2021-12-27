@@ -26,4 +26,17 @@
 
     <p>Open by: <span>{{issue.user.login}}</span></p>
   </div>
+
+  <nav *ngIf="hasIssues" class="mt-3">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <button class="page-link" (click)="previousPage()">Previous</button>
+      </li>
+      <li class="page-item"><button class="page-link">{{currentPage}}</button></li>
+      <li class="page-item">
+        <button class="page-link" (click)="nextPage()">Next</button>
+      </li>
+    </ul>
+  </nav>
+
 </div>
