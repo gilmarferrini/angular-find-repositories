@@ -6,4 +6,5 @@ export interface Repository {
   description: string;
   stargazers_count: number;
   owner: Owner;
+  updated_at: string
 }

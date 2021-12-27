@@ -37,7 +37,12 @@ export class ListRepositoriesComponent implements OnInit {
       total_count: $event.total_count
     }
 
-    this.repositories = $event.items;
+    this.repositories = $event.items.map(item => {
+      return {
+        ...item,
+        updated_at: new Date(item.updated_at).toDateString()
+      }
+    })
 
     this.hasSearched = true
   }
@@ -52,7 +57,12 @@ export class ListRepositoriesComponent implements OnInit {
     this.repositoryService
       .findRepositoriesByName(repositoryName, this.currentPage)
       .subscribe(data => {
-        this.repositories = data.items
+        this.repositories = data.items.map(item => {
+          return {
+            ...item,
+            updated_at: new Date(item.updated_at).toDateString()
+          }
+        })
       })
   }
 

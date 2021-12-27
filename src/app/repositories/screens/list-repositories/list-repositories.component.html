@@ -10,6 +10,9 @@
       <div class="card-body">
         <h5 class="card-title">{{ repository.full_name }}</h5>
         <p class="card-text">{{repository.description}}</p>
+        <p class="card-text">
+          Updated at: {{ repository.updated_at }}
+        </p>
         <button type="button" (click)="changeToDetailsPage(repository.owner.login, repository.name)" class="btn btn-primary">Details</button>
       </div>
     </div>
