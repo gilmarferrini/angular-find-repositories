@@ -3,6 +3,7 @@ import { RepositoryHttpResponse } from './../../models/RepositoryHttpResponse';
 import { Component, OnInit } from '@angular/core';
 import { Repository } from '../../models/Repository';
 import { Router } from '@angular/router';
+import { RepositoryService } from '../../services/repository.service';
 
 @Component({
   selector: 'app-list-repositories',
@@ -16,8 +17,11 @@ export class ListRepositoriesComponent implements OnInit {
 
   hasSearched: boolean = false;
 
+  currentPage : number = 0;
+
   constructor(
-    private router: Router
+    private router: Router,
+    private repositoryService: RepositoryService
   ) { }
 
   ngOnInit(): void {
@@ -25,6 +29,10 @@ export class ListRepositoriesComponent implements OnInit {
   }
 
   getRepositoriesStatusFromEmitter($event: RepositoryHttpResponse) {
+    if (this.currentPage === 0) {
+      this.currentPage = 1;
+    }
+
     this.repositoriesStatusData = {
       total_count: $event.total_count
     }
@@ -36,5 +44,31 @@ export class ListRepositoriesComponent implements OnInit {
 
   changeToDetailsPage(ownerName: string, repositoryName: string) {
     this.router.navigateByUrl(`/home/details/${ownerName}/${repositoryName}`);
+  }
+
+  loadRepositories() {
+    const repositoryName = this.repositoryService.currentRepository
+
+    this.repositoryService
+      .findRepositoriesByName(repositoryName, this.currentPage)
+      .subscribe(data => {
+        this.repositories = data.items
+      })
+  }
+
+  nextPage() {
+    this.currentPage++;
+
+    this.loadRepositories()
+  }
+
+  previousPage() {
+    if (this.currentPage === 1) {
+      return
+    }
+
+    this.currentPage--;
+
+    this.loadRepositories()
   }
 }
