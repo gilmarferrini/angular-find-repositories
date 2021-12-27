@@ -40,4 +40,10 @@ export class RepositoryService {
       .httpClient
       .get<IssueHttpResponse>(`${this.baseURL}/search/issues?page=${page}&q=repo:${ownerName}/${repositoryName}`)
   }
+
+  getLanguages(ownerName: string, repositoryName: string) {
+    return this
+      .httpClient
+      .get<any>(`${this.baseURL}/repos/${ownerName}/${repositoryName}/languages`)
+  }
 }

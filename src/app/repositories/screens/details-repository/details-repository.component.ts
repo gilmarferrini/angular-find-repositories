@@ -16,6 +16,7 @@ export class DetailsRepositoryComponent implements OnInit {
   total_count: number = 0;
   currentPage: number = 1;
   hasIssues: boolean = false;
+  languages: string[] = []
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -27,6 +28,7 @@ export class DetailsRepositoryComponent implements OnInit {
     console.log(this.repository)
 
     this.loadIssues(this.repository.owner.login, this.repository.name, 1)
+    this.loadLanguages(this.repository.owner.login, this.repository.name)
   }
 
   loadIssues(ownerName: string, repositoryName: string, page: number) {
@@ -42,6 +44,12 @@ export class DetailsRepositoryComponent implements OnInit {
           this.hasIssues = true;
         }
       })
+  }
+
+  loadLanguages(ownerName: string, repositoryName: string) {
+    this.repositoryService.getLanguages(ownerName, repositoryName).subscribe(data => {
+      this.languages = Object.keys(data)
+    })
   }
 
   previousPage() {
