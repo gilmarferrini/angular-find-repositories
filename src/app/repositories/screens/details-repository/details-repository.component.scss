@@ -1,0 +1,18 @@
+.details__container {
+  color: #fff;
+
+  h1 a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  h1 a:hover {
+    text-decoration: underline;
+  }
+}
+
+.details__owner {
+  img {
+    max-width: 75px;
+  }
+}

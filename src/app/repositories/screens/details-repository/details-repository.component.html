@@ -1,2 +1,19 @@
 <app-header></app-header>
-<p>details-repository works!</p>
+<div class="details__container container d-flex flex-column mt-3">
+  <h1>
+    <a href="">{{ repository.full_name }}</a>
+  </h1>
+
+  <div class="details__owner d-flex align-items-center mt-3 mb-3">
+    <img class="img-responsive rounded" [src]="repository.owner.avatar_url" alt="">
+    <p class="p-3">Author: {{repository.owner.login}}</p>
+  </div>
+
+  <h2>Description</h2>
+  <p>{{repository.description}}</p>
+
+  <div>
+    <h2>Issues</h2>
+    <p></p>
+  </div>
+</div>
