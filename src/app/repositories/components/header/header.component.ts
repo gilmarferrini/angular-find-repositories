@@ -28,6 +28,10 @@ export class HeaderComponent implements OnInit {
   }
 
   handleSearchRepositories() {
+    if (this.repositoryName.trim() === "") {
+      return;
+    }
+
     this.repositoryService.findRepositoriesByName(this.repositoryName)
       .subscribe(data => {
         this.repositoryHttpResponseEmitter.emit(data)
