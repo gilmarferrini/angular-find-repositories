@@ -12,6 +12,13 @@
   <h2>Description</h2>
   <p>{{repository.description}}</p>
 
+  <div class="details__languages mt-3 mb-3">
+    <h2>Languages</h2>
+    <span class="me-1" *ngFor="let language of languages">
+      {{ language }}
+    </span>
+  </div>
+
   <h2>Issues - {{total_count}}</h2>
 
   <div class="issue mt-3 mb-3 border border-1 p-1 rounded" *ngFor="let issue of issues">
