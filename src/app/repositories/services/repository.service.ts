@@ -33,4 +33,10 @@ export class RepositoryService {
       .httpClient
       .get<any>(`${this.baseURL}/repos/${ownerName}/${repositoryName}`)
   }
+
+  getIssues(ownerName: string, repositoryName: string) {
+    return this
+      .httpClient
+      .get<any>(`${this.baseURL}/search/issues?q=repo:${ownerName}/${repositoryName}`)
+  }
 }
