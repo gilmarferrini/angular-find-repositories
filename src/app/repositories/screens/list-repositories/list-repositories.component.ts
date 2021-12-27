@@ -14,11 +14,14 @@ export class ListRepositoriesComponent implements OnInit {
   repositoriesStatusData: RepositoryStatusData = {} as RepositoryStatusData
   repositories: Repository[] = []
 
+  hasSearched: boolean = false;
+
   constructor(
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.hasSearched = false;
   }
 
   getRepositoriesStatusFromEmitter($event: RepositoryHttpResponse) {
@@ -27,6 +30,8 @@ export class ListRepositoriesComponent implements OnInit {
     }
 
     this.repositories = $event.items;
+
+    this.hasSearched = true
   }
 
   changeToDetailsPage(ownerName: string, repositoryName: string) {
