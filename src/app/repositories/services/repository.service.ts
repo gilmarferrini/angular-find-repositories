@@ -1,3 +1,4 @@
+import { IssueHttpResponse } from './../models/IssueHttpResponse';
 import { CommitHttpResponse } from './../models/CommitHttpResponse';
 import { RepositoryHttpResponse } from './../models/RepositoryHttpResponse';
 import { Injectable } from '@angular/core';
@@ -37,6 +38,6 @@ export class RepositoryService {
   getIssues(ownerName: string, repositoryName: string) {
     return this
       .httpClient
-      .get<any>(`${this.baseURL}/search/issues?q=repo:${ownerName}/${repositoryName}`)
+      .get<IssueHttpResponse>(`${this.baseURL}/search/issues?q=repo:${ownerName}/${repositoryName}`)
   }
 }

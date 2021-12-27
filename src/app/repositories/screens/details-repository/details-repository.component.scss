@@ -16,3 +16,25 @@
     max-width: 75px;
   }
 }
+
+.issue__container {
+  max-height: 600px;
+  overflow: scroll;
+}
+
+.issue {
+  overflow: hidden;
+
+  span {
+    font-weight: 500;
+  }
+
+  a {
+    text-decoration: none;
+    color: #fff;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
