@@ -1,11 +1,14 @@
-.header__container {
+.header {
   background-color: var(--background-primary-color);
 }
 
-.navbar__logo {
-  color: var(--font-primary-color);
-}
+.navbar {
+  &__logo {
+    color: var(--font-primary-color);
 
-.navbar__logo:last-child {
-  color: red;
+    &:last-child {
+      color: red;
+    }
+  }
+
 }
