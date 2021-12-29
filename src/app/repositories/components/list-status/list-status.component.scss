@@ -1,7 +1,9 @@
-.list__container, .list__container--item {
-  background-color: var(--background-primary-color);
-}
 
-.list__container--item {
-  color: var(--font-primary-color);
+.list {
+  background-color: var(--background-primary-color);
+
+  &__item {
+    background-color: var(--background-primary-color);
+    color: var(--font-primary-color);
+  }
 }
