@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="details__container container d-flex flex-column mt-3">
+<div class="details container d-flex flex-column mt-3">
   <h1>
     <a href="">{{ repository.full_name }}</a>
   </h1>
@@ -22,10 +22,10 @@
   <h2>Issues - {{total_count}}</h2>
 
   <div class="issue mt-3 mb-3 border border-1 p-1 rounded" *ngFor="let issue of issues">
-    <p>
+    <p class="issue__title">
       Title:
       <span>
-        <a [href]="issue.html_url" target="__blank">
+        <a class="issue__link" [href]="issue.html_url" target="__blank">
           {{ issue.title }}
         </a>
       </span>

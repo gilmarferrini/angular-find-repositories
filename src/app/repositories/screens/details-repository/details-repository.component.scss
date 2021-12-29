@@ -1,4 +1,4 @@
-.details__container {
+.details {
   color: #fff;
 
   h1 a {
@@ -9,27 +9,24 @@
   h1 a:hover {
     text-decoration: underline;
   }
-}
 
-.details__owner {
-  img {
-    max-width: 75px;
+  &__owner {
+    img {
+      max-width: 75px;
+    }
   }
-}
-
-.issue__container {
-  max-height: 600px;
-  overflow: scroll;
 }
 
 .issue {
   overflow: hidden;
 
-  span {
-    font-weight: 500;
+  &__title {
+    span {
+      font-weight: 500;
+    }
   }
 
-  a {
+  &__link {
     text-decoration: none;
     color: #fff;
 
@@ -37,7 +34,5 @@
       text-decoration: underline;
     }
   }
-}
 
-.details__languages {
 }
