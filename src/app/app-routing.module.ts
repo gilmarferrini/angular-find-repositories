@@ -5,16 +5,15 @@ import { DetailsRepositoryComponent } from './repositories/screens/details-repos
 import { ListRepositoriesComponent } from './repositories/screens/list-repositories/list-repositories.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: ListRepositoriesComponent },
   {
-    path: "home/details/:ownerName/:repositoryName",
-    component: DetailsRepositoryComponent,
-    resolve: {
-      repository: GetRepositoryDetailsResolver
-    }
-  }
-
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home'
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./repositories/repositories.module').then((module) => module.RepositoriesModule)
+  },
 ];
 
 @NgModule({

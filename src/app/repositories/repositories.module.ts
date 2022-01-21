@@ -1,3 +1,4 @@
+import { RepositoriesRoutingModule } from './repositories-routing.module';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -16,6 +17,7 @@ import { DetailsRepositoryComponent } from './screens/details-repository/details
   ],
   imports: [
     CommonModule,
+    RepositoriesRoutingModule,
     HttpClientModule,
     FormsModule
   ]
